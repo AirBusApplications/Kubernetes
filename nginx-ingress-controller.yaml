@@ -303,7 +303,7 @@ metadata:
   labels:
     app: ingress-nginx
 spec:
-  type: 'NodePort'
+  #type: 'NodePort'
   selector:
     app: ingress-nginx
   ports:

@@ -2,11 +2,12 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: nginx-deployment
+  namespace: webserver 
 spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 3
+  replicas: 1
   template: 
     metadata:
       labels:
@@ -18,5 +19,6 @@ spec:
         ports:
         - containerPort: 80
           #hostPort: 85
-          protocol: TCP
-
+          #protocol: TCP
+      nodeSelector:
+        kubernetes.io/hostname: k8s-node
